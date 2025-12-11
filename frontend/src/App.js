@@ -346,7 +346,7 @@ const ChatApp = () => {
               </button>
             </div>
             <div style={styles.footerText}>
-                Powered by Gemini • Deployed on Render
+                Made by Piyush Singh
             </div>
           </div>
         </div>

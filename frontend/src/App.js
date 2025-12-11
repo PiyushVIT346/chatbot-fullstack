@@ -4,7 +4,8 @@ import { Send, Plus, MessageSquare, Trash2, AlertCircle } from 'lucide-react';
 // --- Configuration ---
 // 1. strip trailing slash from env var if present
 // 2. ensure /api is appended
-const RAW_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+//const RAW_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const RAW_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 const BASE_URL = RAW_URL.replace(/\/$/, ''); 
 const API_BASE = `${BASE_URL}/api`;
 

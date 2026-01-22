@@ -285,17 +285,19 @@ database.py: Connection pooling and session management.
 
 ai_service.py: (External) Logic for generating AI responses.
 
-**🔌 API**
+## API ##
 Once the server is running, you can access the interactive docs at:
 - Swagger UI: http://localhost:5000/docs
   Method,Endpoint,Description
-GET,/api/sessions,List all chat sessions grouped by date.
-POST,/api/sessions,Create a new chat session.
-POST,/api/chat,Send a message and get an AI response.
-GET,/api/sessions/{id},Get full history for a specific session.
-DELETE,/api/sessions/{id},Delete a session and its messages.
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| **GET** | `/api/sessions` | List all chat sessions grouped by date (Today, Yesterday, etc.). |
+| **POST** | `/api/sessions` | Create a new chat session and return the session object. |
+| **POST** | `/api/chat` | Process a user message and generate/save the AI response. |
+| **GET** | `/api/sessions/{id}` | Retrieve the full message history for a specific session ID. |
+| **DELETE** | `/api/sessions/{id}` | Permanently delete a session and all associated messages. |
 
-**🗄 Database Schema**
+## 🗄 Database Schema ##
 The project uses a One-to-Many relationship between Sessions and Messages.
 
 - ChatSession: Stores id, timestamp, and title.

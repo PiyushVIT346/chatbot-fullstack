@@ -285,10 +285,13 @@ database.py: Connection pooling and session management.
 
 ai_service.py: (External) Logic for generating AI responses.
 
-## API ##
+
+## 🔌 API Reference
+
 Once the server is running, you can access the interactive docs at:
 - Swagger UI: http://localhost:5000/docs
   Method,Endpoint,Description
+
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | **GET** | `/api/sessions` | List all chat sessions grouped by date (Today, Yesterday, etc.). |

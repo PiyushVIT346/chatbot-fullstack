@@ -242,10 +242,19 @@ Data Validation: Uses Pydantic models to strictly enforce data types and structu
 
 Before getting started with chatbot-fullstack, ensure your runtime environment meets the following requirements:
 
-- **Programming Language:** JavaScript
-- **Package Manager:** Pip, Npm
-- **Container Runtime:** Docker
+- **Programming Language:** Python, HTML, JS
+  
+- **Contextual Memory:** Automatically retrieves past messages in a session to provide the AI with full context.
 
+- **Smart Session Titling:** Automatically renames "New Chat" to a summary of the first user message.
+
+- **Date Grouping:** Advanced logic to categorize sessions into "Today," "Yesterday," or specific dates.
+
+- **Flexible Database:** Dual-support for SQLite (development) and PostgreSQL (production).
+
+- **Automatic Documentation:** Interactive API docs provided by Swagger/OpenAPI.
+
+- **Database Deployed on Neon , frontend deployed on Vercel and backend deploy on Render**
 
 ###  Installation
 
@@ -258,74 +267,36 @@ Install chatbot-fullstack using one of the following methods:
 ❯ git clone https://github.com/PiyushVIT346/chatbot-fullstack
 ```
 
-2. Navigate to the project directory:
+2. Navigate to the project directory and run the flask:
 ```sh
-❯ cd chatbot-fullstack
+❯ python app.py
 ```
 
-3. Install the project dependencies:
+.
 
+**🏗 System Architecture**
+The backend is structured for modularity and scalability:
 
-**Using `pip`** &nbsp; [<img align="center" src="" />]()
+app.py: API routes and business logic.
 
-```sh
-❯ echo 'INSERT-INSTALL-COMMAND-HERE'
-```
+models.py: SQLAlchemy database schemas.
 
+database.py: Connection pooling and session management.
 
-**Using `npm`** &nbsp; [<img align="center" src="https://img.shields.io/badge/npm-CB3837.svg?style={badge_style}&logo=npm&logoColor=white" />](https://www.npmjs.com/)
+ai_service.py: (External) Logic for generating AI responses.
 
-```sh
-❯ npm install
-```
+**🔌 API**
+Once the server is running, you can access the interactive docs at:
+- Swagger UI: http://localhost:5000/docs
+  Method,Endpoint,Description
+GET,/api/sessions,List all chat sessions grouped by date.
+POST,/api/sessions,Create a new chat session.
+POST,/api/chat,Send a message and get an AI response.
+GET,/api/sessions/{id},Get full history for a specific session.
+DELETE,/api/sessions/{id},Delete a session and its messages.
 
+**🗄 Database Schema**
+The project uses a One-to-Many relationship between Sessions and Messages.
 
-**Using `docker`** &nbsp; [<img align="center" src="https://img.shields.io/badge/Docker-2CA5E0.svg?style={badge_style}&logo=docker&logoColor=white" />](https://www.docker.com/)
-
-```sh
-❯ docker build -t PiyushVIT346/chatbot-fullstack .
-```
-
-
-
-
-###  Usage
-Run chatbot-fullstack using the following command:
-**Using `pip`** &nbsp; [<img align="center" src="" />]()
-
-```sh
-❯ echo 'INSERT-RUN-COMMAND-HERE'
-```
-
-
-**Using `npm`** &nbsp; [<img align="center" src="https://img.shields.io/badge/npm-CB3837.svg?style={badge_style}&logo=npm&logoColor=white" />](https://www.npmjs.com/)
-
-```sh
-❯ npm start
-```
-
-
-**Using `docker`** &nbsp; [<img align="center" src="https://img.shields.io/badge/Docker-2CA5E0.svg?style={badge_style}&logo=docker&logoColor=white" />](https://www.docker.com/)
-
-```sh
-❯ docker run -it {image_name}
-```
-
-
-###  Testing
-Run the test suite using the following command:
-**Using `pip`** &nbsp; [<img align="center" src="" />]()
-
-```sh
-❯ echo 'INSERT-TEST-COMMAND-HERE'
-```
-
-
-**Using `npm`** &nbsp; [<img align="center" src="https://img.shields.io/badge/npm-CB3837.svg?style={badge_style}&logo=npm&logoColor=white" />](https://www.npmjs.com/)
-
-```sh
-❯ npm test
-```
-
-
----
+- ChatSession: Stores id, timestamp, and title.
+- Message: Stores id, role (user/assistant), content, and the session_id.

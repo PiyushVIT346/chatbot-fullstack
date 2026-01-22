@@ -37,14 +37,32 @@
 ---
 
 ##  Overview
+This project is a robust backend API for a Chatbot Application, built with FastAPI and SQLAlchemy. It serves as the orchestration layer between a frontend interface and an AI service, managing persistent chat histories, session states, and real-time message processing.
 
-<code>❯ REPLACE-ME</code>
+The system is designed to handle multiple distinct chat sessions, ensuring that users can return to their previous conversations, which are organized logically by date (Today, Yesterday, etc.).
 
 ---
 
 ##  Features
 
-<code>❯ REPLACE-ME</code>
+# 🧠 AI-Powered Conversations
+Context-Aware Messaging: The system doesn't just send the latest prompt; it retrieves and passes the relevant chat history to the ai_service to maintain conversational flow.
+
+Automated Titling: Automatically generates a session title based on the first message sent by the user, making the history list easy to navigate.
+
+# 📁 Advanced Session Management
+Persistent Storage: Uses SQLAlchemy to store all interactions in a relational database (SQLite for local development or PostgreSQL for production).
+
+Date-Based Grouping: An intelligent endpoint organizes chat sessions into human-readable buckets like "Today," "Yesterday," and specific dates.
+
+CRUD Operations: Full support for creating new chats, retrieving specific session details, and deleting entire conversation histories (cascading deletes for all associated messages).
+
+# 🛠 Technical Excellence
+FastAPI Performance: Leverages the speed of FastAPI for high-concurrency message handling and automatic OpenAPI/Swagger documentation.
+
+Flexible Database Support: Pre-configured to work seamlessly with SQLite (local) or PostgreSQL (deployment platforms like Render/Neon).
+
+Data Validation: Uses Pydantic models to strictly enforce data types and structures for all incoming and outgoing API requests.
 
 ---
 

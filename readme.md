@@ -2,7 +2,7 @@
 <img src="https://cdn-icons-png.flaticon.com/512/6295/6295417.png" align="right" width="30%" style="margin: -20px 0 0 20px;">
 <h1>CHATBOT-FULLSTACK</h1>
 <p align="left">
-	<em><code>❯ REPLACE-ME</code></em>
+	<p>A robust, production-ready backend built with FastAPI and SQLAlchemy. This service manages AI-powered chat sessions, persists message history, and organizes conversations for a seamless user experience.</p>
 </p>
 <p align="left">
 	<img src="https://img.shields.io/github/license/PiyushVIT346/chatbot-fullstack?style=default&logo=opensourceinitiative&logoColor=white&color=2089e8" alt="license">
